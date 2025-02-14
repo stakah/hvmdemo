@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+
+  hvm2:
+    image: hvm2
+    container_name: hvm2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true #docker run -i
+    tty: true        #docker run -t
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./app:/app
+    environment:
+      - NODE_ENV=development
+      - PORT=8080
+    networks:
+      - hvm2-network
+
+networks:
+  hvm2-network:
+    driver: bridge
