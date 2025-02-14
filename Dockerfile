@@ -14,4 +14,6 @@ RUN cargo install bend-lang
 # Build the project
 #COPY . .
 
-CMD bin/bash
+WORKDIR /app
+
+CMD /bin/bash
